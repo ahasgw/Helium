@@ -7,6 +7,17 @@
 using Helium::Chemist::Molecule;
 using namespace boost::python;
 
+bool read_1(Helium::Smiles &self, const std::string &smiles, Molecule &mol)
+{
+  Helium::Stereochemistry stereo;
+  return self.read(smiles, mol, stereo);
+}
+
+bool read_2(Helium::Smiles &self, const std::string &smiles, Molecule &mol, Helium::Stereochemistry &stereo)
+{
+  return self.read(smiles, mol, stereo);
+}
+
 std::string write_1(Helium::Smiles &self, const Molecule &mol)
 {
   return self.write(mol);
@@ -81,7 +92,8 @@ void export_smiles()
 {
 
   scope in_Smiles = class_<Helium::Smiles>("Smiles")
-    .def("read", &Helium::Smiles::read<Molecule>)
+    .def("read", &read_1)
+    .def("read", &read_2)
     .def("write", &write_1)
     .def("write", &write_2)
     .def("write", &write_3)

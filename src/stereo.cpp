@@ -271,6 +271,11 @@ namespace Helium {
     } else if (a == 3 && e == 4) {
       classes[0] = Stereo::TB17;
       classes[1] = Stereo::TB18;
+    } else {
+      assert(a >= 0 && a < 5);
+      assert(e >= 0 && e < 5);
+      classes[0] = Stereo::TB17;
+      classes[1] = Stereo::TB18;
     }
 
     if (planeRefs[1] == storage.ref(2))

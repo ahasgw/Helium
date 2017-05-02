@@ -50,6 +50,7 @@ set(python_SRCS
   ../../src/fileio/file.cpp
   ../../src/jsoncpp.cpp
   ../../src/diagram.cpp
+  ../../src/stereo.cpp
   ../../src/depict/svgpainter.cpp
   ../../src/depict/depict.cpp
 )

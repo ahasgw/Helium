@@ -33,32 +33,32 @@ bool apply_2(Helium::Smirks &smirks, Molecule &mol)
   return smirks.apply(mol, Helium::RingSet<Molecule>(mol));
 }
 
-std::vector<boost::shared_ptr<Molecule> > react_1(Helium::Smirks &smirks, const Molecule &mol, const Helium::RingSet<Molecule> &rings, int min, int max)
+std::vector<std::shared_ptr<Molecule> > react_1(Helium::Smirks &smirks, const Molecule &mol, const Helium::RingSet<Molecule> &rings, int min, int max)
 {
   return smirks.react(mol, rings, min, max);
 }
 
-std::vector<boost::shared_ptr<Molecule> > react_2(Helium::Smirks &smirks, const Molecule &mol, const Helium::RingSet<Molecule> &rings, int min)
+std::vector<std::shared_ptr<Molecule> > react_2(Helium::Smirks &smirks, const Molecule &mol, const Helium::RingSet<Molecule> &rings, int min)
 {
   return smirks.react(mol, rings, min);
 }
 
-std::vector<boost::shared_ptr<Molecule> > react_3(Helium::Smirks &smirks, const Molecule &mol, const Helium::RingSet<Molecule> &rings)
+std::vector<std::shared_ptr<Molecule> > react_3(Helium::Smirks &smirks, const Molecule &mol, const Helium::RingSet<Molecule> &rings)
 {
   return smirks.react(mol, rings);
 }
 
-std::vector<boost::shared_ptr<Molecule> > react_4(Helium::Smirks &smirks, const Molecule &mol, int min, int max)
+std::vector<std::shared_ptr<Molecule> > react_4(Helium::Smirks &smirks, const Molecule &mol, int min, int max)
 {
   return smirks.react(mol, min, max);
 }
 
-std::vector<boost::shared_ptr<Molecule> > react_5(Helium::Smirks &smirks, const Molecule &mol, int min)
+std::vector<std::shared_ptr<Molecule> > react_5(Helium::Smirks &smirks, const Molecule &mol, int min)
 {
   return smirks.react(mol, min);
 }
 
-std::vector<boost::shared_ptr<Molecule> > react_6(Helium::Smirks &smirks, const Molecule &mol)
+std::vector<std::shared_ptr<Molecule> > react_6(Helium::Smirks &smirks, const Molecule &mol)
 {
   return smirks.react(mol);
 }

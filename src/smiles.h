@@ -569,7 +569,9 @@ namespace Helium {
       //std::cout << "processUpDownBonds(atom: " << get_index(mol, doubleBondAtom) << ")" << std::endl;
 
       // check if bond is up/down
-      bool isRingBond1 = get_source(mol, bond1) > get_target(mol, bond1);
+      auto atom1 = get_source(mol, bond1);
+      auto atom2 = get_target(mol, bond1);
+      bool isRingBond1 = get_index(mol, atom1) > get_index(mol, atom2);
       bool isUp1 = upBonds.find(get_index(mol, bond1)) != upBonds.end();
       bool isDown1 = downBonds.find(get_index(mol, bond1)) != downBonds.end();
       // if other atom is before atom1, meaning of / and \ changes
@@ -587,7 +589,9 @@ namespace Helium {
       if (bond2 != molecule_traits<EditableMoleculeType>::null_bond()) {
         auto other2 = get_other(mol, bond2, doubleBondAtom);
 
-        bool isRingBond2 = get_source(mol, bond2) > get_target(mol, bond2);
+        auto atom1 = get_source(mol, bond2);
+        auto atom2 = get_target(mol, bond2);
+        bool isRingBond2 = get_index(mol, atom1) > get_index(mol, atom2);
         bool isUp2 = upBonds.find(get_index(mol, bond2)) != upBonds.end();
         bool isDown2 = downBonds.find(get_index(mol, bond2)) != downBonds.end();
         if (get_index(mol, other2) < get_index(mol, doubleBondAtom) && !isRingBond2)
@@ -642,6 +646,7 @@ namespace Helium {
     void SmileyCallback_end(const EditableMoleculeType &mol, Stereochemistry &stereo,
         const std::set<Index> &upBonds, const std::set<Index> &downBonds)
     {
+      /*
       // add double bond stereochemistry
       //
       // ref = [ 0 1 2 3 ]
@@ -651,6 +656,7 @@ namespace Helium {
       //   C == C
       //  /      \
       // 1        2
+      */
       for (auto &bond : get_bonds(mol)) {
         if (get_order(mol, bond) != 2)
           continue;
@@ -1169,11 +1175,13 @@ namespace Helium {
         std::fill(downBonds.begin(), downBonds.end(), false);
 
         for (auto bs : cistrans) {
+          /*
           //  a           d
           //   \         /
           //    c1 === c2
           //   /         \
           //  b           c
+          */
           CisTransHelper<MoleculeType> ct(mol, *bs);
 
           //std::cout << *bs << std::endl;

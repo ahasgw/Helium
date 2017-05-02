@@ -25,6 +25,9 @@ if (OPENCL_FOUND)
   set(helium_tool_SRCS ${helium_tool_SRCS}
     opencl.cpp
   )
+  set(Helium_LIBRARIES ${Helium_LIBRARIES}
+    ${OPENCL_LIBRARIES}
+  )
 endif()
 
 add_executable(helium_tool ${helium_tool_SRCS})

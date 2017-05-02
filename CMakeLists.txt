@@ -20,7 +20,7 @@ set(HEDATADIR "${CMAKE_SOURCE_DIR}/data/")
 include_directories(${CMAKE_BINARY_DIR}/include)
 
 # Setup 3th party packages (included with source)
-include_directories(${CMAKE_SOURCE_DIR}/src/thirdparty)
+#include_directories(${CMAKE_SOURCE_DIR}/src/thirdparty)
 
 # Find and setup boost (required)
 if (MSVC)

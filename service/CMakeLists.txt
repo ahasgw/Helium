@@ -6,9 +6,7 @@ add_executable(heliumservice
   mongoose/mongoose.c)
 
 target_link_libraries(heliumservice
-  helium
+  ${Helium_LIBRARIES}
   ${CMAKE_DL_LIBS}
   ${Boost_PROGRAM_OPTIONS_LIBRARY}
   ${Boost_IOSTREAMS_LIBRARY} )
-
-target_link_libraries(heliumservice )
